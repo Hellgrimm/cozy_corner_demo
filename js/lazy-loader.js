@@ -14,19 +14,19 @@ const normalizedPath = currentPath
   .replace(/\/$/, '');            // /home/          → /home
 
 const globalCSSFiles = [
-    '/css/base.css',
-    '/css/colors.css',
-    '/css/fonts.css',
-    '/css/header-footer.css',
-    '/css/login.css',
-    '/home/cart/cart.css'
+    '../css/base.css',
+    '../css/colors.css',
+    '../css/fonts.css',
+    '../css/header-footer.css',
+    '../css/login.css',
+    '../home/cart/cart.css'
 ];
 
 const pageSpecificCSS = {
-    '/home/': ['/home/home.css', '/css/books.css'],
-    '/library/': ['/home/library/library.css', '/css/books.css'],
-    '/cart.html': ['/home/cart/cart.css'],
-    '/test-all.html': ['/css/books.css']
+    '/home/': ['../home/home.css', '../css/books.css'],
+    '/library/': ['../home/library/library.css', '../css/books.css'],
+    '/cart.html': ['../home/cart/cart.css'],
+    '/test-all.html': ['../css/books.css']
 };
 
 globalCSSFiles.forEach(file => loadCSS(file));
@@ -58,7 +58,7 @@ import('/js/common.js')
 
         module.checkLoginStatus();
 
-        import('/js/cart.js')
+        import('../js/cart.js')
             .then(cartModule => {
                 if (cartModule.updateCartUI) {
                     cartModule.updateCartUI();
@@ -108,14 +108,14 @@ import('/js/common.js')
 
         if (normalizedPath === '/home') {
             // Динамічно імпортуємо модулі тільки на головній
-            import('/js/book.js')
+            import('../js/book.js')
               .then(bookModule => {
                 window.updateOffcanvas = bookModule.updateOffcanvas;
                 console.log('%c[JS] book.js for home loaded', 'color: lightgreen;');
               })
               .catch(err => console.error('Error loading book.js for home:', err));
           
-            import('/js/home.js')
+            import('../js/home.js')
               .then(async homeModule => {
                 await homeModule.setupHomePage();
                 console.log('%c[JS] home.js loaded', 'color: lightgreen;');
@@ -124,7 +124,7 @@ import('/js/common.js')
           }
 
         if (currentPath.includes('/library/')) {
-            import('/js/book.js')
+            import('../js/book.js')
                 .then(async (bookModule) => {
                     console.log('%c[LIBRARY] Starting to load book.js', 'color: orange; font-weight: bold;');
                     await bookModule.initializeLibraryPage();
