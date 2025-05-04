@@ -1,0 +1,258 @@
+/* Header */
+.navbar-holder {
+    background: var(--header-bg);
+    padding: 10px 0 5px;
+}
+
+.navbar-holder .container-fluid {
+    max-width: 1200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-nav {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    align-items: center;
+}
+
+.nav-item {
+    padding: 0 10px;
+}
+
+.nav-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--footer-link);
+}
+
+.nav-link:hover {
+    color: var(--footer-link-hover);
+}
+
+.user-container {
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu {
+    padding: 8px;
+}
+
+.dropdown-menu #userNameItem {
+    padding-bottom: 10px;
+    font-weight: bold;
+}
+
+/* Header Search */
+.header-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-search input {
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 200px;
+}
+
+.header-search .search-button {
+    background-color: var(--footer-link);
+    color: var(--footer-bg);
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.header-search .search-button.search-selected {
+    background-color: var(--footer-link-hover);
+}
+
+
+
+/* Footer */
+#footerDiv {
+    background-color: var(--footer-bg);
+}
+
+.footer {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px 24px 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.footer-list {
+    text-align: center;
+    padding: 15px;
+}
+
+.footer-list a {
+    color: var(--footer-link);
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.footer-list a:hover {
+    color: var(--footer-link-hover);
+}
+
+.footer-email {
+    text-align: center;
+}
+
+.footer-email input {
+    padding: 15px;
+    background-color: var(--input-bg);
+    border: none;
+    width: 100%;
+    color: var(--input-color);
+}
+
+.footer-email button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: var(--footer-link);
+    color: var(--footer-bg);
+    border: none;
+    cursor: pointer;
+}
+
+.footer-email button:hover {
+    background-color: var(--footer-link-hover);
+}
+
+.footer h1 {
+    color: var(--footer-link);
+    margin-bottom: 20px;
+}
+
+.footer .image-footer img {
+    max-width: 140px;
+    height: auto;
+    margin: auto;
+    display: block;
+}
+
+.footer-list p {
+    color: var(--footer-text);
+}
+
+/* Медіа-запити */
+@media (min-width: 770px) {
+    .footer {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .footer-list {
+        text-align: left;
+    }
+}
+
+
+
+.user-container {
+    display: flex;
+    align-items: center;
+    position: relative; /* Для коректного позиціонування меню */
+    margin-left: 10px;
+}
+
+/* Стилізація балансу користувача */
+.user-container .user-balance {
+    color: #fff;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.user-container .cart {
+    margin-left: 10px;
+}
+
+.sub-menu-wrap {
+    position: absolute;
+    top: 110%;
+    right: 0;
+    width: 320px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    opacity: 0;
+    z-index: 1000;
+}
+.sub-menu-wrap.open-menu {
+    max-height: 400px;
+    opacity: 1;
+}
+.sub-menu{
+    background: #222222;
+    padding: 20px;
+    margin-top: 16px;
+}
+.user-info{
+    display: flex;
+    align-items: center;
+}
+.user-info h3{
+    color: #fff;
+    font-weight: 500;
+}
+.user-info img{
+    width: 60px;
+    border-radius: 50%;
+    margin-right: 15px;
+}
+.sub-menu hr{
+    background: #fff;
+    border: 0;
+    height: 1px;
+    width: 100%;
+    margin: 15px 0 10px;
+}
+.sub-menu .sub-menu-link{
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #fff;
+    margin: 12px 0;
+}
+.sub-menu .sub-menu-link p{
+    color: #fff;
+    width: 100%;
+    font-size: 14px;
+    margin: 0;
+    transition: font-weight 0.2s;
+}
+.sub-menu .sub-menu-link:hover p{
+    font-weight: 600;
+}
+.sub-menu .sub-menu-link img{
+    width: 40px;
+    padding: 6px;
+    margin-right: 15px;
+
+}
+.sub-menu .sub-menu-link span{
+    font-size: 20px;
+    transition: transform 0.2s;
+}
+.sub-menu .sub-menu-link:hover span{
+    transform: translateX(5px);
+}
+
+
+#cartIconContainer #cartSum{
+    margin-left: 5px;
+    color: #fff;
+    font-size: 18px;
+}

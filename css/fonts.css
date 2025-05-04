@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+/* Загальні стилі */
+body {
+    font-family: var(--font-family-main);
+    line-height: var(--line-height-base);
+}
+
+/* Заголовки */
+h1 {
+    font-size: var(--font-size-h1);
+    font-family: var(--font-family-main);
+    color: var(--font-color-heading);
+    line-height: 1.4375;
+    text-align: left;
+}
+
+h2 {
+    font-size: var(--font-size-h2);
+    font-family: var(--font-family-main);
+    color: var(--font-color-heading);
+    line-height: 1.1;
+    font-weight: 500;
+    margin: 0;
+}
+
+h3 {
+    font-size: var(--font-size-h3);
+    font-family: var(--font-family-main);
+    line-height: var(--line-height-base);
+    font-weight: 600;
+    color: var(--font-color-heading);
+}
+
+/* Текст */
+p {
+    font-size: var(--font-size-book-description);
+    font-family: var(--font-family-main);
+    color: var(--font-color-text);
+    line-height: var(--line-height-base);
+    font-style: normal;
+    letter-spacing: 0;
+    font-weight: normal;
+}
+
+/* Навігація */
+.navbar-collapse a {
+    font-size: var(--font-size-link);
+    font-family: var(--font-family-main);
+}
+
+.navbar-collapse .nav-link:hover {
+    color: var(--font-color-hover) !important;
+}
+
+.nav-link {
+    font-size: 1rem;
+    font-family: var(--font-family-main);
+    color: var(--footer-link);
+    font-weight: 400;
+    text-decoration: none;
+}

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" 
+     type="image/png"
+     href="../../img/cozy_corner_logo_circl.png">
+    <title>TEST PAGE</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../../css/colors.css">
+    <link rel="stylesheet" href="../../css/books.css">
+    <!-- <style>
+        :root {
+            --test-color: #ff0000;
+            --test-color-2: #00ff00;
+        }
+    </style> -->
+    
+    <style>
+        .color-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 20px;
+        }
+        .color-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 200px;
+            height: 100px;
+            border-radius: 8px;
+            color: white;
+            font-size: 14px;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 10px;
+        }   
+    </style>
+</head>
+
+<body>
+    <header style="position: sticky; top: 0; z-index: 1030;">
+
+    </header>
+    
+    <main>
+        <h1>Test Colors</h1>
+        <div id="color-display" class="color-container"></div>
+        <h2>Інші змінні</h2>
+        <div id="non-color-display" class="color-container"></div>
+
+        
+
+        <h1>Текст формату H1</h1>
+        <h1 class="text-muted">Текст формату H1 muted</h1>
+        <h1 class="centered">Текст формату H1 centered</h1>
+        
+        <h2>Текст формату H2</h2>
+        <h2 class="text-muted">Текст формату H2 muted</h2>
+        <h2 class="centered">Текст формату H2 centered</h2>
+        
+        <h3>Текст формату H3</h3>
+        <h3 class="text-muted">Текст формату H3 muted</h3>
+        <h3 class="centered">Текст формату H3 centered</h3>
+        
+        <h4>Текст формату H4</h4>
+        <h4 class="text-muted">Текст формату H4 muted</h4>
+        <h4 class="centered">Текст формату H4 centered</h4>
+        
+        <h5>Текст формату H5</h5>
+        <h5 class="text-muted">Текст формату H5 muted</h5>
+        <h5 class="centered">Текст формату H5 centered</h5>
+        
+        <p>Текст формату Paragraph</p>
+        <p class="text-muted">Текст формату Paragraph muted</p>
+        <p class="centered">Текст формату p centered</p>
+        
+        <blockquote>Це текст у форматі цитати blockquote.</blockquote>
+
+
+        <div>
+            <button class="btn btn-desc">Опис</button>
+            <button class="btn btn-desc active">Опис активна</button>
+            <button class="btn btn-desc muted" disabled >Опис вимкнена</button>
+            <button class="btn btn-sort">Сортування</button>
+            <button class="btn btn-sort active">Сортування активна</button>
+            <button class="btn btn-sort muted" disabled>Сортування вимкнена</button>
+            <button class="btn"> кнопка</button>
+
+            <button id="localDescriptionSearch" class="btn btn-desc">Кнопка "За описом"</button>
+        </div>
+        
+
+
+        <h2>Приклад системи пошуку та сортування</h2>
+        <div class="books-search">
+            <input id="localSearchInput" type="text" placeholder="Пошук книг у бібліотеці..." />
+            <button id="localDescriptionSearch" class="btn btn-desc">За описом</button>
+        </div>
+
+        <div class="sort-dropdown">
+            <button class="btn btn-sort">Сортувати</button>
+            <div class="dropdown-content">
+                <div class="sort-table">
+                    <div class="sort-row">
+                        <button class="sort-option" data-sort="alphabet-asc">A→Z</button>
+                        <button class="sort-option" data-sort="alphabet-desc">Z→A</button>
+                    </div>
+                    <div class="sort-row">
+                        <button class="sort-option" data-sort="price-asc">₴ ↑</button>
+                        <button class="sort-option" data-sort="price-desc">₴ ↓</button>
+                    </div>
+                    <div class="sort-row">
+                        <button class="sort-option" data-sort="rating-asc">☆ → ★</button>
+                        <button class="sort-option" data-sort="rating-desc">★ → ☆</button>
+                    </div>
+                    <div class="sort-row">
+                        <button class="sort-option" data-sort="year-asc">2024 → 1800</button>
+                        <button class="sort-option" data-sort="year-desc">1800 → 2024</button>
+                    </div>
+                </div>
+                <div class="sort-reset">
+                    <button class="reset-btn">Скинути сортування</button>
+                </div>
+            </div>
+        </div>
+
+        
+
+        <h2>Приклад системи фільтрації</h2>
+        <div class="book-filters">
+            <!-- Тут динамічні фільтри -->
+        </div>
+
+
+
+        <h2>Приклад карточки книги</h2>
+        <div class="books" style="width: 300px; padding-bottom: 0px;">
+            <div class="book-card">
+                <div class="book-card-separator" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" onclick="updateOffcanvas(1)">
+                    <img src="https://book-ye.com.ua/upload/resize_cache/iblock/a09/520_860_1/2ff51675_fd91_11ee_819b_005056857596_82877ffa_039a_11ef_819b_005056857596.jpg" alt="Назва книжки. Том 1" />
+                    <h3>Назва книжки. Том 1</h3>
+                    <p>Письменник</p>
+                </div>
+                <div class="book-card-bottom">
+                    <div class="book-card-rating">
+                        <img src="/img/book-things/star.png" alt="star" />
+                        <p>3.4</p>
+                    </div>
+                    <div class="book-card-price-button">
+                        <button class="btn-book-card">
+                            <span class="price-text">200 ₴</span>
+                            <span class="add-to-cart-text">В кошик</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="book-card">
+                <div class="book-card-separator" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" onclick="(1)">
+                    <img src="https://book-ye.com.ua/upload/resize_cache/iblock/a09/520_860_1/2ff51675_fd91_11ee_819b_005056857596_82877ffa_039a_11ef_819b_005056857596.jpg" alt="Назва книжки. Том 2" />
+                    <h3>Назва книжки. Том 2</h3>
+                    <p>Письменник 2</p>
+                </div>
+                <div class="book-card-bottom">
+                    <div class="book-card-rating">
+                        <img src="/img/book-things/star.png" alt="star" />
+                        <p>2.4</p>
+                    </div>
+                    <div class="book-card-price-button">
+                        <button class="btn-book-card out-of-stock disabled">
+                            <span class="price-text">200 ₴</span>
+                            <span class="add-to-cart-text">Не в наявності</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+       
+
+
+
+        <h2>Приклад модалки логіну-реєстрації</h2>
+        <li id="loginItem"><a class="dropdown-item" href="javascript:void(0);" onclick="showLoginModal();">Увійти</a></li>
+        <div id="loginModalContainer" style="display: none;"></div>
+        <div class="modal fail-login-register fade" id="failModal" aria-labelledby="failModalLabel">
+            <div class="modal-dialog  modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="failModalLabel">Login failed</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <h2>Хедер</h2>
+        <header>
+            <div id="headerDiv"></div>
+        </header>
+        
+
+        <h2>Футер</h2>
+        <div id="footerDiv"></div>
+
+
+        <h2>Корзина</h2>
+        <div id="Cart" class="cart">      
+            <div class="cart-block">
+                <div id="cart-container" class="cart-container">
+                    <div class="cart-text-block">
+                        <p>Ви маєте <span id="item-count">цікаві</span> книжки у корзині</p>
+                    </div>
+                    <div class="cart-btn-block">
+                        <button class="btn" onclick="window.location.href='/home/cart/index.html'">В кошик</button>
+                    </div>
+                    <div id="book-overlay" class="book-overlay" style="display: none;">
+                        <div class="book-item">
+                            <img src="https://book-ye.com.ua/upload/iblock/a7e/2564848f_f67f_11ee_8199_005056857596_ded5d3a1_f67f_11ee_8199_005056857596.jpg" alt="Book Cover">
+                            <div class="book-info">
+                                <p class="book_name">Квантова фізика і пес Шрьодингера</p>
+                                <p>Грімтейл</p>
+                            </div>
+                            <p class="book-price">417.54</p>
+                            <button class="close-btn">X</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <ul>
+            <li>Перший елемент</li>
+            <li>Другий елемент</li>
+            <li>Третій елемент</li>
+        </ul>
+        <ol>
+            <li>Перший елемент</li>
+            <li>Другий елемент</li>
+            <li>Третій елемент</li>
+        </ol>
+        <table>
+            <thead>
+                <tr>
+                    <th>Колонка 1</th>
+                    <th>Колонка 2</th>
+                    <th>Колонка 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Дані 1</td>
+                    <td>Дані 2</td>
+                    <td>Дані 3</td>
+                </tr>
+                <tr>
+                    <td>Дані 4</td>
+                    <td>Дані 5</td>
+                    <td>Дані 6</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <!-- <div> -->
+            <input type="text" placeholder="Текстове поле">
+            <input type="password" placeholder="Поле пароля">
+            <input type="email" placeholder="Поле email">
+        <!-- </div> -->
+        
+
+        <select>
+            <option>Опція 1</option>
+            <option>Опція 2</option>
+            <option>Опція 3</option>
+        </select>
+
+        <textarea placeholder="Текстова область"></textarea>
+
+        <label><input type="checkbox"> Чекбокс 1</label>
+        <label><input type="checkbox"> Чекбокс 2</label>
+
+        <label><input type="radio" name="group1"> Радіокнопка 1</label>
+        <label><input type="radio" name="group1"> Радіокнопка 2</label>
+
+        <img src="https://via.placeholder.com/150" alt="Тестове зображення">
+        <figure>
+            <img src="https://via.placeholder.com/150" alt="Фігура">
+            <figcaption>Підпис до фігури</figcaption>
+        </figure>
+
+        <a href="#">Звичайне посилання</a>
+        <a href="#" class="link-primary">Primary посилання</a>
+        <a href="#" class="link-secondary">Secondary посилання</a>
+        <a href="#" class="link-disabled" aria-disabled="true">Disabled посилання</a>
+
+        <div class="spinner">Завантаження...</div>
+
+        <progress max="100" value="50"></progress>
+        <div class="progress">
+            <div class="progress-bar" style="width: 50%;">50%</div>
+        </div>
+
+        <button class="btn" onclick="document.getElementById('modal').style.display='block'">Відкрити модальне вікно</button>
+        <div id="modal" style="display:none; position:fixed; top:50%; left:50%; transform:translate(-50%, -50%); background:white; padding:20px; box-shadow:0 4px 8px rgba(0,0,0,0.2);">
+            <h2>Модальне вікно</h2>
+            <p>Контент модального вікна</p>
+            <button class="btn" onclick="document.getElementById('modal').style.display='none'">Закрити</button>
+        </div>
+                                                        
+    </main>
+
+    <footer> 
+        
+    </footer>
+
+    
+    <script src="../test-all/colors.js"></script>
+    <script src="../../js/lazy-loader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

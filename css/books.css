@@ -1,0 +1,857 @@
+.bg-block {
+    background-color: var(--grim-onyx);
+}
+
+
+
+/*Cart block*/
+.cart {
+    align-items: center;
+}
+
+.cart > .cart-block {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+}
+
+.cart-container {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+    position: relative;
+}
+
+.cart-container .cart-text-block {
+    flex-grow: 1;
+    margin-right: 10px;
+}
+
+.cart-container .cart-text-block p {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.cart-container .cart-btn-block {
+    flex-shrink: 0;
+}
+
+
+.book-overlay {
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 1200px;
+    z-index: 100;
+    transform: translateY(100%);
+    display: none;
+}
+
+.book-overlay .book-item {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.book-overlay .book-item img {
+    width: 50px;
+    height: auto;
+    margin-right: 5px;
+}
+
+.book-info {
+    flex-grow: 1;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.book-info .book_name {
+    font-weight: bold;
+}
+
+.book-price {
+    white-space: nowrap;
+}
+
+#item-count:hover + #book-overlay {
+    display: block;
+}
+
+
+/**/
+
+
+
+/*Бібліотечний блок*/
+.books {
+    align-items: center;
+    padding-bottom: 90px;
+    background-color: #f6f4f0;
+}
+
+.books h2 {
+    padding-top: 40px;
+    padding-bottom: 5px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f6f4f0;
+}
+
+.books .books-block {
+    display: flex;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #f6f4f0;
+}
+
+.book-filters {
+    width: 25%;
+    max-width: 250px;
+    padding: 20px;
+    border-right: 2px solid #ddd;
+}
+
+.book-filter {
+    margin-bottom: 15px;
+    border-radius: 10px;
+    background-color: var(--color-light-gray);
+    cursor: pointer;
+    display: flex;
+    flex-direction: column; /* Vertical layout */
+}
+
+.book-filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer; /* Pointer for the entire header */
+    width: 100%; /* Full width of the container */
+    padding: 8px;
+}
+
+.book-filter-header .filter-title-container {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.book-filter-header .filter-title {
+    font-size: 16px;
+    font-weight: bold;
+    word-wrap: break-word;
+}
+
+.book-filter-header .filter-button {
+    background: url('/img/book-things/arrow-down.png') no-repeat center center;
+    background-size: contain;
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 50%;
+    transition: transform 0.2s; /* Анімація обертання */
+    flex-shrink: 0;
+}
+
+.book-filter-header .filter-button:hover {
+    background-color: var(--color-dark-gray);
+}
+
+/* Коли меню активне (розкрите) */
+.book-filter.active .filter-button {
+    transform: rotate(180deg); /* Повертаємо стрілку */
+}
+
+
+.filter-options {
+    display: none; /* Keep the options hidden initially */
+    flex-direction: column; /* Align options vertically when displayed */
+    margin-top: 5px;
+    padding-left: 10px;
+    padding-right: 8px;
+    padding-bottom: 8px;
+}
+
+.filter-option {
+    display: flex; /* Align checkbox and label in a row */
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
+
+.filter-option input[type="checkbox"] {
+    margin-right: 10px;
+    flex-shrink: 0;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid var(--color-dark-gray);
+    border-radius: 5px;
+    background-color: var(--color-checkbox-bg);
+    cursor: pointer;
+}
+
+.filter-option input[type="checkbox"]:checked {
+    background-color: var(--color-checkbox-selected);
+    border-color: var(--color-checkbox-selected);
+}
+
+.filter-option label {
+    line-height: 1.5;
+    word-break: break-word;
+}
+
+.filter-search {
+    width: calc(100% - 16px); /* Відповідна ширина із відступами */
+    margin: 8px;
+    padding: 5px;
+    border: 1px solid var(--color-dark-gray);
+    border-radius: 5px;
+}
+
+
+
+
+.books .books-container .no-books-message {
+    width: 100%;
+    text-align: center;
+    margin: auto;
+}
+
+.books .books-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    width: 100%;
+    justify-content: flex-start;
+}
+
+.books .book-card {
+    flex: 0 0 25%;
+    height: 520px;
+    text-align: center;
+    border: 0.1px solid #ededed;
+    position: relative;
+    transition: box-shadow 0.3s;
+}
+
+.books .book-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.books .book-card-separator {
+    padding: 10px;
+    min-height: 250px;
+}
+
+.books .book-card-separator h3{
+    font-size: 18px;
+    transition: font-size 0.3s;
+    line-height: 1.5em;
+    max-height: 3em; /* Twice the line-height, so two lines */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limits text to two lines */
+    -webkit-box-orient: vertical;
+}
+
+.books .book-card-separator p{
+    font-size: 16px;
+    transition: font-size 0.3s;
+    line-height: 1.5em;
+    max-height: 3em; /* Twice the line-height, so two lines */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limits text to two lines */
+    -webkit-box-orient: vertical;
+}
+
+.books .book-card:hover .book-card-separator h3{
+    font-size: 18.5px;
+}
+.books .book-card:hover .book-card-separator p {
+    font-size: 16.5px;
+}
+
+.books .book-card img {
+    height: 300px;
+    width: auto;
+    margin-bottom: 10px;
+    transition: height 0.3s;
+}
+
+.books .book-card:hover .book-card-separator img {
+    height: 304px;
+}
+
+.books .book-card-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.books .book-card-rating {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 0;
+}
+
+.books .book-card-rating img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    margin: auto;
+}
+
+.books .book-card-bottom p {
+    margin: 0;
+    padding: 10px;
+
+}
+
+/* Обгортка блоку — обмежуємо максимальну ширину і центруємо */
+.recent-books {
+    max-width: 1200px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  /* Контейнер карток — flex-сітка з вирівнюванням ліворуч */
+  .recent-books .books-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 20px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  
+  /* Ховаємо всі картки, починаючи з 6-ї */
+  .recent-books .books-container > .book-card:nth-child(n+6) {
+    display: none;
+  }
+  
+  /* Кожна картка займає до 20% ширини */
+  .recent-books .books-container > .book-card {
+    flex: 0 0 20%;
+    max-width: 20%;
+    height: 480px;
+    text-align: center;
+    border: 0.1px solid #ededed;
+    position: relative;
+    transition: box-shadow 0.3s;
+  }
+  
+  .recent-books .books-container > .book-card:hover {
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  }
+  
+  /* Верхня частина картки */
+  .recent-books .books-container .book-card-separator {
+    padding: 10px;
+    min-height: 250px;
+  }
+  
+  /* Заголовок і автор — дві лінії тексту, обрізка */
+  .recent-books .books-container .book-card-separator h3,
+  .recent-books .books-container .book-card-separator p {
+    line-height: 1.5em;
+    max-height: 3em; /* 2 x 1.5em */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    transition: font-size 0.3s;
+  }
+  .recent-books .books-container .book-card-separator h3 {
+    font-size: 18px;
+  }
+  .recent-books .books-container .book-card-separator p {
+    font-size: 16px;
+  }
+  
+  /* Злегка збільшуємо шрифт при ховері */
+  .recent-books .books-container > .book-card:hover .book-card-separator h3 {
+    font-size: 18.5px;
+  }
+  .recent-books .books-container > .book-card:hover .book-card-separator p {
+    font-size: 16.5px;
+  }
+  
+  /* Зображення */
+  .recent-books .books-container .book-card img {
+    height: 300px;
+    width: auto;
+    margin-bottom: 10px;
+    transition: height 0.3s;
+  }
+  .recent-books .books-container > .book-card:hover .book-card-separator img {
+    height: 304px;
+  }
+  
+  /* Нижня частина картки */
+  .recent-books .books-container .book-card-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  /* Рейтинг */
+  .recent-books .books-container .book-card-rating {
+    display: none;
+    /* align-items: center;
+    padding: 10px;
+    margin: 0 auto;
+    padding-bottom: 0; */
+  }
+  .recent-books .books-container .book-card-rating img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+  /* Текстова частина нижнього блоку */
+  .recent-books .books-container .book-card-bottom p {
+    margin: 0;
+    padding: 10px;
+  }
+  
+
+/*=======================================*/
+
+/* Стилі для тексту */
+
+.btn-book-card {
+    background-color: var(--btn-book-card);
+}
+.btn-book-card:hover {
+    background-color: var(--btn-book-card-hovered);
+}
+
+.book-card-price-button .price-text {
+    display: block;
+    color: var(--book-card-price-button-text);
+}
+
+.book-card-price-button .add-to-cart-text {
+    display: none;
+    color: var(--book-card-price-button-text);
+}
+
+/* Hover-ефект для активних кнопок */
+.book-card-price-button button:hover .price-text {
+    display: none;
+}
+.book-card-price-button button:hover .add-to-cart-text {
+    display: block;
+}
+
+/* Стилі для кнопок, які неактивні */
+.book-card-price-button button.out-of-stock {
+    background-color: var(--btn-book-card-outofstock);
+    color: var(--book-card-price-button-text);
+    cursor: default;
+}
+.book-card-price-button button.out-of-stock:hover {
+    background-color: var(--btn-book-card-outofstock-hovered);
+    color: var(--book-card-price-button-text);
+}
+
+/*=======================================*/
+
+/* Стандартні стилі для кнопок */
+
+.books .books-container {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px; /* Відступ між пошуком та списком книг */
+}
+
+.books .books-search {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px; /* Відступ між пошуковим полем та кнопкою */
+}
+
+.books .books-search input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.books .books-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+/*=======================================*/
+
+/* Контейнер сортування */
+.sort-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Відображення випадаючого меню */
+.sort-dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: var(--dropdown-content-bg);
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
+    min-width: 200px;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+
+/* Таблиця сортування */
+.sort-table {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.sort-row {
+    display: contents;
+}
+
+
+/* Кнопки сортування */
+.sort-option {
+    background-color: var(--btn-sub-sort); /* Базовий сірий колір */
+    color: var(--btn-sub-sort-text);
+    border: none;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+    font-size: var(--btn-sub-sort-size, 14px); /* Розмір шрифту */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.sort-option:hover {
+    background-color: var(--btn-sub-sort-hovered);
+    color: var(--btn-sub-sort-text-hovered);
+}
+
+/* Активна кнопка сортування */
+.sort-option.active {
+    background-color: var(--btn-sub-sort-checked); /* Темніший сірий для активної кнопки */
+    color: var(--btn-sub-sort-text-checked);
+    cursor: default;
+}
+
+
+/* Кнопка скидання */
+.sort-reset {
+    text-align: center;
+}
+
+.reset-btn {
+    background-color: var(--btn-sub-sort-reset);
+    color: var(--btn-sub-sort-reset-text);
+    border: none;
+    padding: 8px 12px;
+    width: 100%;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 8px;
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.reset-btn:hover {
+    background-color: var(--btn-sub-sort-reset-hover);
+}
+
+/*=======================================*/
+
+/*Offcanvas книжкові подробиці*/
+
+#offcanvasBottom {
+    max-width: 1200px;
+    min-height: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.offcanvas-header .btn-close {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-right: 0;
+}
+
+.offcanvas-grid {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Top block */
+.top-block {
+    display: flex;
+    border-bottom: 1px solid #ccc;
+}
+
+.top-left-block, .top-right-block {
+    flex: 1;
+    padding: 10px;
+}
+
+.top-left-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.offcanvas-image {
+    margin-bottom: 10px;
+}
+
+.offcanvas-image img {
+    width: 240px;
+}
+
+.offcanvas-button-block {
+    width: 100%;
+}
+
+.offcanvas-button-block .btn{
+    width: 100%;
+    height: 50px;
+}
+
+.top-right-block {
+    display: flex;
+    flex-direction: column;
+}
+
+.top-right-block h3 {
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* Стиль для незмінного тексту */
+.top-right-block .static-text {
+    color: var(--trb-static-text); /* Колір для незмінного тексту */
+    font-weight: bold; /* Виділення тексту */
+}
+
+/* Стиль для змінного тексту */
+.top-right-block .dynamic-text {
+    color: var(--trb-dynamic-text); /* Колір для змінного тексту */
+    font-weight: normal; /* Стандартна товщина шрифту */
+}
+
+.top-right-block .dynamic-text:hover {
+    color: var(--trb-dynamic-text-hovered); /* Колір для змінного тексту */
+    font-weight: normal; /* Стандартна товщина шрифту */
+    text-decoration: underline; /* Підкреслення тексту */
+}
+
+
+
+/* Bottom block styling */
+.bottom-block {
+
+    padding: 10px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+/**/
+
+
+
+
+
+/* Загальний контейнер для категорій */
+.book-categories {
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Заголовок блоку категорій */
+.book-categories h2 {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--trb-static-text);
+}
+
+/* Заголовок кожної категорії */
+.category-container {
+    margin-bottom: 40px;
+}
+
+.category-container .category-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--trb-static-text);
+    margin-bottom: 10px;
+}
+
+/* Контейнер для книг у категорії */
+.category-container .category-books-list {
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+/* Картка книги (як у бібліотеці) */
+.category-container .book-card {
+    flex: 0 0 20%; /* 5 карток в одному рядку з відступами */
+    height: 520px;
+    text-align: center;
+    border: 0.1px solid #ededed;
+    position: relative;
+    transition: box-shadow 0.3s;
+}
+
+.category-container .book-card:hover {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.category-container .book-card-separator {
+    padding: 10px;
+    min-height: 250px;
+}
+
+.category-container .book-card-separator h3{
+    font-size: 18px;
+    transition: font-size 0.3s;
+    line-height: 1.5em;
+    max-height: 3em; /* Twice the line-height, so two lines */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limits text to two lines */
+    -webkit-box-orient: vertical;
+}
+
+.category-container .book-card-separator p{
+    font-size: 16px;
+    transition: font-size 0.3s;
+    line-height: 1.5em;
+    max-height: 3em; /* Twice the line-height, so two lines */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limits text to two lines */
+    -webkit-box-orient: vertical;
+}
+
+.category-container .book-card:hover .book-card-separator h3{
+    font-size: 18.5px;
+}
+.category-container .book-card:hover .book-card-separator p {
+    font-size: 16.5px;
+}
+
+/* Зображення книги */
+.category-container .book-card img {
+    height: 300px;
+    width: auto;
+    margin-bottom: 10px;
+    transition: height 0.3s;
+}
+
+.category-container .book-card:hover .book-card-separator img {
+    height: 304px;
+}
+
+/* Нижня частина картки */
+.category-container .book-card .book-card-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Рейтинг книги */
+.category-container .book-card .book-card-rating {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 0;
+}
+
+.category-container .book-card .book-card-rating img {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+    margin: auto;
+}
+
+.category-container .book-card-price-button {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+.category-container .book-card-bottom p {
+    margin: 0;
+    padding: 10px;
+
+}
+
+
+.filter-counter {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ff6b6b; /* Червоний колір (можна змінити) */
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    margin-left: 8px;
+    padding: 2px;
+}
+
+.filter-option .filter-counter {
+    opacity: 1;
+}
+
+.filter-option input:disabled + label .filter-counter {
+    background-color: #bbb; /* Сірий для вимкнених */
+    color: #666;
+    opacity: 0.7;
+}

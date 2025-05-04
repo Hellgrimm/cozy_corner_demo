@@ -1,0 +1,116 @@
+<div class="navbar-holder">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/home/" text-decoration: none; color: inherit;>
+                <img src="/img/cozy_corner_logo_circl-loading.png" alt="Logo" style="width: 30px; height: 30px;">
+                <span>Cozy Corner</span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home/library/">Бібліотека</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home/events/">Івенти</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/home/about-us/">Про нас</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="header-search">
+                <input id="headerSearchInput" type="text" placeholder="Пошук книг..." />
+                <div id="searchResultsOverlay" class="search-results-overlay" style="display: none;">
+                </div>
+            </div>
+            
+            <div class="modal fade search-modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-right">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="searchModalLabel">Пошук книг</h5>
+                            <h5 id="searchResultsCount"></h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <input id="modalSearchInput" type="text" class="form-control mb-3" placeholder="Пошук книг..." />
+                                    <button id="modalDescriptionSearch" class="btn btn-desc">За описом</button>
+                                    <div id="modalSearchResults" class="search-results">
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <h6>Категорії</h6>
+                                    <ul id="categoryList" class="list-group">
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="modal-footer fixed-footer">
+                                <button id="goToLibraryButton" class="btn btn-primary">Переглянути все</button>
+                            </div>                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="user-container">
+                <img src="/img/user/user.png" style="width: 30px; height: 30px;" class="user-pic">
+                <div id="cartIconContainer" style="display: inline-flex; align-items: center; cursor: pointer;">
+                    <img src="/img/user/cart.png" style="width: 30px; height: 30px;" class="cart" id="cartIcon">
+                    <span id="cartBadge" style="
+                            background: red; 
+                            color: white; 
+                            border-radius: 50%; 
+                            padding: 3px 6px; 
+                            margin-left: -10px; 
+                            font-size: 12px;
+                          ">0</span>
+                    <span id="cartSum">0.00 ₴</span>
+                  </div>
+
+                <div class="sub-menu-wrap" id="subMenu">
+                    <div class="sub-menu">
+                        <div id="user-info" class="user-info">
+                            <img src="/img/user/user.png">
+                            <h3 id="userNameItem">User Name</h3>
+                            <span id="userRoleBadge" class="role-badge">Користувач</span>
+                        </div>
+                        <hr id="subMenuHR">
+                        <a href="#" id="adminPanelLink" class="sub-menu-link">
+                            <img src="/img/user/administrator.png">
+                            <p>Адмін панель</p>
+                            <span>></span>
+                        </a>
+                        <a href="#" id="orderHistoryItem" class="sub-menu-link">
+                            <img src="/img/user/history.png" alt="Історія">
+                            <p>Мої покупки</p>
+                            <span>></span>
+                        </a>
+                        <a href="#" id="savedItem" class="sub-menu-link">
+                            <img src="/img/user/bookmark.png">
+                            <p>Збережене</p>
+                            <span>></span>
+                        </a>
+                        <a href="#" id="settingsItem" class="sub-menu-link">
+                            <img src="/img/user/settings.png">
+                            <p>Налаштування</p>
+                            <span>></span>
+                        </a>
+                        <a href="#" id="logoutItem" class="sub-menu-link">
+                            <img src="/img/user/logout.png">
+                            <p>Вийти</p>
+                            <span>></span>
+                        </a>
+                        <a href="#" id="loginItem" class="sub-menu-link">
+                            <img src="/img/user/log-in.png">
+                            <p>Увійти</p>
+                            <span>></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+</div>

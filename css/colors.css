@@ -1,0 +1,147 @@
+:root {
+    --btn-desc: #368342;
+    --btn-desc-text: #ffffff;
+    --btn-desc-hovered: #3d7435;
+    --btn-desc-text-hovered: #ffffff;
+    --btn-desc-active: #8f6226;
+    --btn-desc-text-active: #ffffff;
+    --btn-desc-active-hovered: #80662f;
+    --btn-desc-active-text-hovered: #ffffff;
+    --btn-desc-muted: #4b4b4b;
+    --btn-desc-text-muted: #ffffff;
+
+    --btn-sort: #368342;
+    --btn-sort-text: #ffffff;
+    --btn-sort-hovered: #3d7435;
+    --btn-sort-text-hovered: #ffffff;
+    --btn-sort-active: #4b692d;
+    --btn-sort-text-active: #ffffff;
+    --btn-sort-active-hovered: #3d7435;
+    --btn-sort-active-text-hovered: #ffffff;
+    --btn-sort-muted: #4b4b4b;
+    --btn-sort-text-muted: #ffffff;
+
+    --dropdown-content-bg: #ffffff;
+    --btn-sub-sort: #d3d3d3;
+    --btn-sub-sort-text: #000000;
+    --btn-sub-sort-hovered: #c0c0c0;
+    --btn-sub-sort-text-hovered: #ffffff;
+    --btn-sub-sort-checked: #a9a9a9;
+    --btn-sub-sort-text-checked: #ffffff;
+    --btn-sub-sort-reset: #ff6666;
+    --btn-sub-sort-reset-text: #ffffff;
+    --btn-sub-sort-reset-hover: #fd3939;
+    --btn-sub-sort-size: 12px;
+
+    --btn-close:transparent;
+    --btn-close-hovered: #ff0000;
+    --btn-close-text: #333333;
+
+    --color-checkbox-bg: #f0f0f0;
+    --color-checkbox-selected: #424242;
+
+    --btn-book-card: #d87777;
+    --btn-book-card-hovered: #974545;
+    --btn-book-card-outofstock: #c4c4c4;
+    --btn-book-card-outofstock-hovered: #a8a8a8;
+    --book-card-price-button-text: #ffffff;
+
+    --btn-book-quantity: #b66969;
+    --btn-book-quantity-hovered: #974545;
+    --btn-book-quantity-outofstock: #c4c4c4;
+    --btn-book-quantity-outofstock-hovered: #a8a8a8;
+    --btn-book-quantity-text: #ffffff;
+
+    --trb-static-text: #333333;
+    --trb-dynamic-text: #007BFF;
+    --trb-dynamic-text-hovered: #007BFF;
+
+    --color-dark-gray: #333333;
+    --color-gray: #666666;
+    --color-light-gray: #999999;
+    --color-silver: #CCCCCC;
+    --color-white: #FFFFFF;
+
+    --grim-brown-sugar: #b88d61;
+    --grim-brown: #895d42;
+    --grim-silver: #AAAAAAff;
+    --grim-onyx: #38393Dff;
+    --grim-night: #151517ff;
+    --grim-black: #1b0914;
+
+    --header-bg: var(--grim-night);
+    --footer-bg: var(--grim-night);
+    
+    --btn-normal:#707070;
+    --btn-normal-hovered:#525252;
+    --btn-text-normal:#cfcfcf;
+
+    --footer-text: #C2C2C2;
+    --footer-link: #FFFFFF;
+    --footer-link-hover: #E0E0E0;
+    --input-bg: #ffffff24;
+    --input-color: #FFFFFF;
+
+    --font-family-main: "Montserrat", sans-serif;
+    --font-color-heading: #1b0914;
+    --font-color-text: #6c223a;
+    --font-color-hover: #eeeeee;
+    --font-size-h1: 34px;
+    --font-size-h2: 32px;
+    --font-size-h3: 26px;
+    --font-size-p: 20px;
+    --font-size-book-description: 16px;
+    --font-size-link: 18px;
+    --line-height-base: 1.5;
+
+    --modalSearchResults-outofstock: #dc3545;
+    --modalSearchResults-limited: #ffa500;
+}
+
+
+
+:root {
+        /* статуси замовлень */
+        --status-processing-bg: #ffc107;
+        --status-shipped-bg:    #17a2b8;
+        --status-completed-bg:  #28a745;
+        --status-cancelled-bg:  #dc3545;
+    }
+    
+    /* бедж в заголовку */
+    .order-status-badge {
+        color: #fff;
+        padding: 2px 6px;
+        border-radius: 4px;
+        font-size: 0.85em;
+    }
+
+    /* класи за статусом */
+    .order-status-badge.status-processing  { background-color: var(--status-processing-bg); }
+    .order-status-badge.status-shipped     { background-color: var(--status-shipped-bg); }
+    .order-status-badge.status-completed   { background-color: var(--status-completed-bg); }
+    .order-status-badge.status-cancelled   { background-color: var(--status-cancelled-bg); }
+
+/* 
+    Система кольорів
+    
+        Кольори для хедера:
+            фон
+            кнопки-посилання
+            замовлення:
+                -
+            корзина:
+                -
+            меню користувача:
+                -
+        Модалка логіну-реєстрації
+        Кольори для футера
+        Кольори для елементів:
+            картка книжки
+            оверлей книжки
+            фільтри
+            сортування
+            статуси замовлень
+
+
+*/

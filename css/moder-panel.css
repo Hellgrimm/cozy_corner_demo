@@ -1,0 +1,306 @@
+/* admin-panel.css */
+
+/* Змінні для кольорів */
+:root {
+    --primary-color: #4CAF50; /* Основний колір (зелений) */
+    --secondary-color: #FFC107; /* Вторинний колір (жовтий) */
+    --background-color: #f4f4f4; /* Колір фону */
+    --text-color: #333; /* Колір тексту */
+    --header-color: #ffffff; /* Колір заголовків */
+    --button-primary-bg: #007BFF; /* Фон основної кнопки */
+    --button-primary-hover-bg: #0056b3; /* Фон кнопки при наведенні */
+    --button-secondary-bg: #6c757d; /* Фон вторинної кнопки */
+    --button-secondary-hover-bg: #5a6268; /* Фон вторинної кнопки при наведенні */
+    --modal-bg-color: #ffffff; /* Колір фону модалки */
+    --modal-header-bg: var(--primary-color); /* Колір заголовка модалки */
+    --modal-header-text-color: #ffffff; /* Колір тексту в заголовку модалки */
+    --border-color: #ddd; /* Колір обводки */
+}
+
+.moder-books-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.book-item {
+    background: white;
+    border-radius: 8px;
+    padding: 10px;
+    width: 250px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.book-item img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.book-item h3 {
+    font-size: 16px;
+    margin: 0;
+}
+
+.book-item p {
+    font-size: 14px;
+    color: gray;
+    margin: 5px 0;
+}
+
+.book-item .btn {
+    margin-top: 10px;
+}
+
+/* Стилі для прев'ю обкладинки в модальному вікні */
+
+
+
+
+
+.moderator-welcome {
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 20px;
+}
+
+.navbar-text {
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 10px;
+}
+
+.navbar-text:hover {
+    text-decoration: underline;
+}
+
+.moderator-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.stat-card {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    width: 30%;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+    margin-bottom: 10px;
+}
+
+.stat-card button {
+    margin-top: 10px;
+}
+
+
+/* Обмеження ширини контенту */
+.section-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Заголовок розділу та кнопка повернення */
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 10px;
+    border-bottom: 2px solid #ccc;
+}
+
+.section-header h2 {
+    flex-grow: 1;
+    text-align: center;
+}
+
+/* Кнопка повернення */
+.back-to-main {
+    background-color: #6c757d;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.back-to-main:hover {
+    background-color: #5a6268;
+}
+
+#moderBooksContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.book-preview {
+    max-width: 200px;
+    max-height: 250px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+.books-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto 15px;
+}
+
+/* Кнопки перемикання вигляду */
+.view-toggle {
+    display: flex;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 2px solid #6c757d;
+}
+
+.view-btn {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.view-btn.active {
+    background: #6c757d;
+    color: white;
+}
+
+/* Вигляд списку */
+.books-list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.books-list-view .book-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 800px;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.books-list-view .book-item img {
+    width: 70px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-right: 15px;
+}
+
+.books-list-view .book-info {
+    flex-grow: 1;
+}
+
+/* Вигляд таблиці */
+.books-table-view {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.books-table-view .book-item {
+    width: 220px;
+    height: 340px;
+    text-align: center;
+    background: white;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.books-table-view .book-item img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+.genre-container, .language-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.genre-tag, .language-tag {
+    background: #6c757d;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+}
+
+.genre-tag button, .language-tag button {
+    background: none;
+    border: none;
+    color: white;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.genre-suggestions, .language-suggestions {
+    list-style: none;
+    padding: 5px;
+    margin: 0;
+    background: white;
+    border: 1px solid #ccc;
+    max-height: 120px;
+    overflow-y: auto;
+    display: none;
+}
+
+.genre-suggestions li, .language-suggestions li {
+    padding: 5px;
+    cursor: pointer;
+}
+
+.genre-suggestions li:hover, .language-suggestions li:hover {
+    background: #e9ecef;
+}
+
+
+#moderOrdersContainer {
+    width: 100%;
+}
+
+#moderOrdersContainer .order-status-select{
+    width: 50%;
+}

@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/* Загальні налаштування для всіх секцій */
+#homeContent section {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+    border-bottom: 1px solid #e9ecef;
+  }
+  
+  #homeContent section:last-child {
+    border-bottom: none;
+  }
+  
+  /* Стилі для заголовків секцій */
+  #homeContent h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    color: #343a40;
+    margin-bottom: 1.5rem;
+    position: relative;
+    text-align: center;
+  }
+  
+  #homeContent h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background-color: #6f42c1;
+    margin: 0.5rem auto 0;
+  }
+  
+  /* Секція "Нещодавно переглянуті" */
+  #recentlyViewedSection {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  #recentlyViewedSection .recently-viewed-item {
+    flex: 1 1 calc(20% - 1.25rem);
+    max-width: calc(20% - 1.25rem);
+    cursor: pointer;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  #recentlyViewedSection .recently-viewed-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+  
+  #recentlyViewedSection .recently-viewed-item h5 {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+  
+  #recentlyViewedSection .recently-viewed-item p {
+    color: #6c757d;
+    font-size: 0.875rem;
+  }
+  
+  #recentlyViewedSection .recently-viewed-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  /* Секція "Найвищі рейтинги" і "Рекомендації" */
+  #topRatedSection .card,
+  #recommendationsSection .card {
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  #topRatedSection .card:hover,
+  #recommendationsSection .card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  }
+  
+  #topRatedSection .card-img-top,
+  #recommendationsSection .card-img-top {
+    object-fit: cover;
+    height: 400px;
+  }
+  
+  /* Секція "Наші тарифи" */
+  #plansSection .card {
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  
+  #plansSection .card:hover {
+    border-color: #6f42c1;
+    transform: translateY(-4px);
+  }
+  
+  #plansSection .card-header h4 {
+    font-weight: 600;
+    color: #6f42c1;
+  }
+  
+  #plansSection .card-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  #plansSection ul {
+    margin-top: 1rem;
+    text-align: left;
+  }
+  
+  #plansSection ul li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Кнопка вибору плану */
+  #plansSection .btn-primary {
+    background-color: #6f42c1;
+    border-color: #6f42c1;
+  }
+  
+  #plansSection .btn-primary:hover {
+    background-color: #59359c;
+    border-color: #59359c;
+  }
+  
+  /* Секція "Наші партнери" */
+  #partnersSection {
+    gap: 1.5rem;
+  }
+  
+  #partnersSection img {
+    max-height: 140px;
+    opacity: 0.8;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  
+  #partnersSection img:hover {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+  
+  /* Секція приватного режиму: статистика користувача */
+  #userStatsSection .border {
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    transition: background-color 0.2s;
+  }
+  
+  #userStatsSection .border:hover {
+    background-color: #e9ecef;
+  }
+  
+  #userStatsSection h3 {
+    font-size: 1.75rem;
+    color: #343a40;
+  }
+  
+  #userStatsSection p {
+    margin-bottom: 0;
+    color: #6c757d;
+  }
+  
+  /* Мобільна адаптація для recentlyViewedSection */
+  @media (max-width: 768px) {
+    #recentlyViewedSection .recently-viewed-item {
+      flex: 1 1 calc(50% - 1.25rem);
+      max-width: calc(50% - 1.25rem);
+    }
+  }
+  
+
+
+.high-ratings{
+    margin: auto;
+    max-width: 75%;
+}

@@ -1,0 +1,277 @@
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #f6f4f0;
+}
+
+.modal-content {
+    margin: 0;
+}
+
+.new-md6 {
+    width: 60%;
+}
+
+.filling-form {
+    width: 40%;
+}
+
+.cart-container {
+    max-width: 1200px;
+    margin: auto;
+    height: 95vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-row {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.cart-container .new-md6 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-items {
+    overflow-y: auto;
+    max-height: 72vh;
+}
+
+.flexible-spacer {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #666;
+}
+
+#total-price-display {
+    flex-grow: 0;
+}
+
+#total-price-display .sep {
+    border-top: 1px solid var(--grim-onyx);
+}
+
+.book-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cart-book-img {
+    width: auto;
+    height: 100px;
+    border-radius: 5px;
+}
+
+.cart-book-info {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.cart-book-info p {
+    margin: 0;
+    padding: 2px 0;
+}
+
+.cart-price-cancel {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0; 
+}
+
+.cart-book-price {
+    display: inline-block;
+    margin-right: 10px;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.close-btn {
+    padding: 5px 10px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background-color: #e53e30;
+}
+
+.new-md6 h2{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.filling-form h2{
+    margin-top: 30px;   
+}
+
+.filling-form label{
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+}
+
+.filling-form form {
+    margin-top: 30px;   
+}
+
+.filling-form .form-group{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-top: 1px solid #e3e3e3;
+}
+
+.filling-form .form-group label.delivery{
+    padding-bottom: 8px;
+}
+
+
+.filling-form .button-group {
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.filling-form .button-group .btn {
+    height: 57px;
+    border: 2px;
+    border-color: transparent;
+    padding: 0 15px;
+    margin: 0 0 0 0;
+    border-radius: 3px;
+    color: #fff4e9;
+    text-decoration: none;
+    text-align: center;
+    transition: all 0.7s;
+    background-color: #b88d61;
+    font-weight: 500;
+}
+    
+.filling-form .button-group .btn:hover {
+    color: black;
+    background-color: #d3ac84;
+    cursor: pointer;
+}
+
+.filling-form .radio-inputs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.filling-form input[type="radio"] {
+    display: none;
+}
+
+.filling-form input[type="radio"] + label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 20px;
+    color: #333;
+    margin-right: 10px;
+    white-space: nowrap;
+}
+
+.filling-form input[type="radio"] + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #ccc;
+    border-radius: 50%;
+    background-color: #fff;
+    transition: border-color 0.3s, background-color 0.3s;
+}
+
+.filling-form input[type="radio"]:checked + label:before {
+    background-color: #b88d61;
+    border-color: #b88d61;
+}
+
+#total-books-price, #mailing-cost, #final-total {
+    font-weight: 500;
+}
+
+
+/* cart.css */
+
+/* Style for quantity control buttons */
+.quantity-decrement,
+.quantity-increment,
+.qty-decrement,
+.qty-increment {
+
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+
+
+
+.book-card-quantity-number {
+    background-color: #f0f0f0; /* or your desired color */
+    height: 100%; /* Assuming the parent has a defined height */
+    display: block; /* Ensures it behaves as a block-level element */
+    text-align: center; /* Optional, centers the number */
+    line-height: 30px; /* Match this to the parent's height for vertical centering */
+  }
+  
+/* Ensure the quantity number is clearly visible */
+#modal-quantity-* {
+  display: inline-block;
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+/* Style for header cart badge and sum display */
+#cartBadge {
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 14px;
+}
+
+#cartSum {
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+/* Style for items marked for deletion */
+.cart-item.pending-deletion {
+  background-color: rgba(255, 0, 0, 0.2); /* red with low opacity */
+}
+
+/* Style for delete and undo icon buttons */
+.delete-item,
+.undo-delete {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}

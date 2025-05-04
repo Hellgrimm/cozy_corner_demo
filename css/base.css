@@ -1,0 +1,326 @@
+:root{
+    scroll-behavior: smooth;
+}
+
+
+
+/* Основні класи-параметри */
+.centered {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* Основні елементи */
+body {
+    margin: auto;
+}
+
+.text-muted {
+    color: var(--muted-text);
+}
+
+#localSearchInput {
+    border-radius: 8px;
+}
+
+#headerSearchInput {
+    border-radius: 8px;
+}
+
+
+/* Розділ з кнопкаами */
+
+.btn-desc {
+    background-color: var(--btn-desc);
+    color: var(--btn-desc-text);
+}
+.btn-desc:hover {
+    background-color: var(--btn-desc-hovered);
+    color: var(--btn-desc-text-hovered);
+}
+.btn-desc.active {
+    background-color: var(--btn-desc-active);
+    color: var(--btn-desc-text-active);
+}
+.btn-desc:hover.active {
+    background-color: var(--btn-desc-active-hovered);
+    color: var(--btn-desc-active-text-hovered);
+}
+.btn-desc.muted {
+    background-color: var(--btn-desc-muted);
+    color: var(--btn-desc-text-muted);
+}
+
+
+.btn-sort {
+    background-color: var(--btn-sort);
+    color: var(--btn-sort-text);
+}
+.btn-sort:hover {
+    background-color: var(--btn-sort-hovered);
+    color: var(--btn-sort-text-hovered);
+}
+.btn-sort.active {
+    background-color: var(--btn-sort-active);
+    color: var(--btn-sort-text-active);
+}
+.btn-sort:hover.active {
+    background-color: var(--btn-sort-active-hovered);
+    color: var(--btn-sort-active-text-hovered);
+}
+.btn-sort.muted {
+    background-color: var(--btn-sort-muted);
+    color: var(--btn-sort-text-muted);
+}
+
+
+
+.book-card-quantity{
+    background-color: var(--btn-book-quantity);
+    color: var(--btn-book-quantity-text);
+    border-radius: 0 !important;
+    width: 30px;
+    min-height: 44px !important;
+}
+.book-card-quantity:hover {
+    background-color: var(--btn-book-quantity-hovered);
+    color: var(--btn-book-quantity-text);
+}
+.book-card-quantity:disabled {
+    background-color: var(--btn-book-quantity-outofstock);
+    color: var(--btn-book-quantity-text);
+}
+
+
+.close-btn {
+    padding: 0 5px;
+    border: none;
+    background-color: var(--btn-close);
+    cursor: pointer;
+    color: var(--btn-close-text);
+    font-weight: bold;
+}
+.close-btn:hover {
+    color: var(--btn-close-hovered);
+}
+
+
+/* Parent wrapper that holds the quantity container and the button */
+.add-to-cart-wrapper {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.quantity-container {
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+
+/* Button: remove width: 100% and let it flex to fill remaining space */
+.btn-book-card {
+    flex: 1 1 auto;
+    border: none;
+    padding: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    /* width: auto; -- you can remove or comment out width: 100% */
+}
+  
+
+
+
+
+
+/* Стилі для модального вікна пошуку */
+.modal-dialog-right {
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin: 0;
+    height: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-dialog-right .modal-content {
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.search-modal .modal-backdrop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: auto;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+
+
+
+
+
+/* Забезпечує, що оверлей затемнення знаходиться позаду модалки */
+.modal-backdrop {
+    z-index: 1029; /* Нижчий z-index для оверлея */
+}
+
+.modal-body {
+    
+}
+
+#searchResultsCount {
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+#modalSearchResults {
+    width: 500px;
+}
+
+/* Контейнер для книги */
+#modalSearchResults .book-item {
+    display: flex;
+    align-items: center;
+    height: 120px;
+    gap: 15px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+}
+
+/* Ховер ефект */
+#modalSearchResults .book-item:hover {
+    background-color: #f8f9fa;
+    transform: scale(1.02);
+}
+
+/* Картинка */
+#modalSearchResults .book-item-image {
+    width: 65px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+/* Інформація */
+#modalSearchResults .book-item-info {
+    flex: 1;
+}
+
+/* Заголовок */
+#modalSearchResults .book-item-title {
+    font-size: 16px;
+    margin: 0;
+    color: #333;
+}
+
+/* Автор */
+#modalSearchResults .book-item-author {
+    font-size: 14px;
+    color: #777;
+    margin: 5px 0;
+}
+
+/* Футер */
+#modalSearchResults .book-item-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Ціна */
+#modalSearchResults .book-item-price {
+    font-size: 14px;
+    font-weight: bold;
+    color: #28a745;
+}
+
+/* Статус */
+#modalSearchResults .book-item-status {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+#modalSearchResults .book-item-status.out-of-stock {
+    color:  var(--modalSearchResults-outofstock); /* Червоний для "Не в наявності" */
+}
+
+#modalSearchResults .book-item-status.limited {
+    color: var(--modalSearchResults-limited); /* Жовто-помаранчевий для "Закінчується" */
+}
+
+/* Закріплена кнопка внизу модалки */
+.fixed-footer {
+    position: sticky;
+    bottom: 0;
+    background-color: #fff;
+    padding: 0px;
+    border-top: 1px solid #ddd;
+    z-index: 1051; /* Вище за фон модалки */
+}
+
+.fixed-footer .btn {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+}
+ 
+
+
+/* Базовий стиль плашки */
+.role-badge {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 12px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    margin-left: 10px;
+}
+
+/* Ролі */
+.user-role {
+    background-color: #28a745; /* Зелений */
+}
+
+.moderator-role {
+    background-color: #007bff; /* Синій */
+}
+
+.admin-role {
+    background-color: #6f42c1; /* Фіолетовий */
+}
+
+
+.order-history-modal .modal-dialog {
+    min-width: 800px;
+}
+
+.order-history-modal .accordion-button{
+    display: block;
+}
+
+#settingsModal .btn-group-sm>.btn, .btn-sm{
+    font-size: 1rem;
+}
+
+#settingsModal .modal-header .btn-secondary {
+    background-color: white;
+}

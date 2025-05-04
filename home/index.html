@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" 
+     type="image/png"
+     href="../img/cozy_corner_logo_circl-loading.png">
+    <title>Головна - Cozy Corner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/home/home.css">
+    <style>
+        #loading-screen {
+            position: fixed;
+            inset: 0;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        
+            /* початковий «виріз» покриває весь екран */
+            clip-path: circle(150% at 50% 50%);
+            -webkit-clip-path: circle(150% at 50% 50%);
+            transition: clip-path 1s ease-out, -webkit-clip-path 1s ease-out;
+        }
+        
+        /* 2) Поставили клас → «виріз» звузився до центру */
+        #loading-screen.shrink {
+            clip-path: circle(0 at 50% 50%);
+            -webkit-clip-path: circle(0 at 50% 50%);
+        }
+        
+        /* Логотип обертається в процесі завантаження */
+        .loading-logo img {
+            width: 150px;
+            animation: spin 1.5s linear infinite;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+        
+        /* 3) Коли додаємо цей клас — картинка звузиться і згасне */
+        .loading-logo img.shrink-logo {
+            transform: scale(0);
+            opacity: 0;
+        }
+        
+        /* Ключові кадри обертання */
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading-screen">
+        <div class="loading-logo">
+            <img src="/img/cozy_corner_logo_circl-loading.png" alt="Logo" id="loading-logo">
+        </div>
+    </div>
+    
+    <header style="position: sticky; top: 0; z-index: 1030;">
+        <div id="headerDiv"></div>
+    </header>
+    
+    <main>
+        <section class="mb-5 recent-books">
+            <h2 class="mb-4">Нещодавно переглядали</h2>
+            <div class="books-container" id="recentlyViewedSection"></div>
+        </section>
+
+        <div class="container" id="homeContent">
+        </div>
+
+        <div class="offcanvas offcanvas-bottom" tabindex="-1" id="offcanvasBottom" aria-labelledby="offcanvasBottomLabel">
+            <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasBottomLabel">Опис</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body small">
+            </div>
+        </div>
+
+        <div class="modal fail-login-register fade" id="failModal" aria-labelledby="failModalLabel">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="failModalLabel">Login failed</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer> 
+        <div id="footerDiv"></div>
+    </footer>
+
+    <div id="loginModalContainer" style="display: none;"></div>
+    <script src="/js/lazy-loader.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>

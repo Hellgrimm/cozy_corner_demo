@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" 
+        type="image/png"
+        href="/img/cozy_corner_logo_circl-loading.png">
+    <title>Корзина - Cozy Corner</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="cart.css">
+    <style>
+        #loading-screen {
+            position: fixed;
+            inset: 0;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        
+            /* початковий «виріз» покриває весь екран */
+            clip-path: circle(150% at 50% 50%);
+            -webkit-clip-path: circle(150% at 50% 50%);
+            transition: clip-path 1s ease-out, -webkit-clip-path 1s ease-out;
+        }
+        
+        /* 2) Поставили клас → «виріз» звузився до центру */
+        #loading-screen.shrink {
+            clip-path: circle(0 at 50% 50%);
+            -webkit-clip-path: circle(0 at 50% 50%);
+        }
+        
+        /* Логотип обертається в процесі завантаження */
+        .loading-logo img {
+            width: 150px;
+            animation: spin 1.5s linear infinite;
+            transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+        
+        /* 3) Коли додаємо цей клас — картинка звузиться і згасне */
+        .loading-logo img.shrink-logo {
+            transform: scale(0);
+            opacity: 0;
+        }
+        
+        /* Ключові кадри обертання */
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="loading-screen">
+        <div class="loading-logo">
+            <img src="/img/cozy_corner_logo_circl-loading.png" alt="Logo" id="loading-logo">
+        </div>
+    </div>    
+    
+    <header style="position: sticky; top: 0; z-index: 1030;">
+        <div id="headerDiv"></div>
+    </header>
+
+    <main>
+        <div class="cart-container">
+            <div class="row cart-row">
+                <div class="col-md-6 new-md6">
+                    <h2>Ваше замовлення</h2>
+                    <div  id="cart-items" class="cart-items">
+                    </div>
+                    <div class="flexible-spacer"></div>
+                    <div id="total-price-display">
+                        <p class="sep">Разом:   <span id="total-books-price">0</span></p>
+                        <p>Ціна доставки:   <span id="mailing-cost">50</span>₴</p>
+                        <p class="sep">До сплати:   <span id="final-total">0</span></p>
+                    </div>  
+                </div>
+                <div class="col-md-6 filling-form">
+                    <h2>Заповніть дані у форму</h2>
+                    <form id="purchase-form">
+                        <div class="form-group">
+                            <label for="userName">Ім'я:</label>
+                            <input type="text" id="userName" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="userEmail">Електронна пошта:</label>
+                            <input type="email" id="userEmail" class="form-control" readonly>
+                        </div>                        
+                        <div class="form-group">
+                            <label class="delivery">Вид доставки:</label>
+                            <div class="radio-inputs">
+                                <input type="radio" id="mailing-format-post" name="mailing-format" value="поштомат" checked required>
+                                <label for="mailing-format-post">Поштомат (50 грн)</label>
+                                <input type="radio" id="mailing-format-office" name="mailing-format" value="відділення">
+                                <label for="mailing-format-office">Відділення (70 грн)</label>
+                            </div>
+                        </div>                        
+                        <div class="form-group">
+                            <label for="mailingAddress">Адреса доставки:</label>
+                            <input type="text" class="form-control" id="mailingAddress" required>
+                        </div>
+                        <div class="button-group">
+                            <button type="submit" class="btn btn-primary">Підтвердити замовлення</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="insufficientFundsModal" tabindex="-1" style="display: none;">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Недостатньо грошей</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Запит на придбання був відхилений через недостатній баланс. Будь ласка, поповніть свій рахунок.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" onclick="location.href='/home';">На головну</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="purchaseSuccessModal" tabindex="-1" style="display: none;">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Замовлення успішне</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Ваше замовлення було успішно оброблено. Дякую за покупку!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="location.href='/home';">На головну</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="modal" id="orderErrorModal" tabindex="-1" style="display: none;">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Відміна замовлення</h5>
+                    </div>
+                    <div class="modal-body">
+                        <p>Через проблеми на сервері, ваш запит на придбання був відхилений. Спробуйте знову згодом.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="location.href='/home';">На головну</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer> 
+        <div id="footerDiv"></div>
+    </footer>
+
+    <div id="loginModalContainer" style="display: none;"></div>
+    <script src="/js/lazy-loader.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body> 
+</html>
