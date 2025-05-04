@@ -49,12 +49,11 @@ export async function getBooks() {
 function loadReusableComponent(containerId, filePath) {
     const container = document.getElementById(containerId);
     if (container) {
-        const reusablePath = `${getBasePath()}${filePath}`;
         console.log(`%c[REUSABLE] Завантаження ${filePath} в ${containerId}`, 'color: green;');
-        return fetch(reusablePath)
+        return fetch(filePath)
             .then((response) => {
                 if (!response.ok) {
-                    throw new Error(`%c[REUSABLE] Network response was not ok for ${reusablePath}`, 'color: red;');
+                    throw new Error(`%c[REUSABLE] Network response was not ok for ${filePath}`, 'color: red;');
                 }
                 return response.text();
             })
@@ -70,21 +69,16 @@ function loadReusableComponent(containerId, filePath) {
     }
 }
 
-// Функція для отримання базового шляху
-function getBasePath() {
-    const pathParts = window.location.pathname.split('/');
-    return '../'.repeat(pathParts.length - 2); // -2 враховує "глибину" папки (home/)
-}
-
 // Завантаження хедера
 export function loadHeader() {
-    return loadReusableComponent('headerDiv', '/reusable/header.html');
+    return loadReusableComponent('headerDiv', './reusable/header.html');
 }
 
 // Завантаження футера
 export function loadFooter() {
-    return loadReusableComponent('footerDiv', '/reusable/footer.html');
+    return loadReusableComponent('footerDiv', './reusable/footer.html');
 }
+
 
 // Функція для глобального пошуку
 export function setupHeaderSearch(books) {
