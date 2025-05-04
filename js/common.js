@@ -299,7 +299,7 @@ function createCartModal() {
         document.getElementById('closeCartModal').addEventListener('click', hideCartModal);
         // Set up checkout button event to redirect to the checkout page
         document.getElementById('checkoutButton').addEventListener('click', () => {
-            window.location.href = '/home/cart/index.html';
+            window.location.href = '../home/cart/index.html';
         });
     }
 }
@@ -1215,7 +1215,7 @@ export function loadLoginModal() {
         return Promise.reject('%c[LOAD LOGIN MODAL] Контейнер loginModalContainer не знайдено', 'color: orage;');
     }
 
-    return loadReusableComponent('loginModalContainer', '/reusable/login.html').then(() => {
+    return loadReusableComponent('loginModalContainer', '../reusable/login.html').then(() => {
         console.log('%c[LOAD LOGIN MODAL] Модалка логіну завантажена', 'color: orange;');
         const modalContainer = document.getElementById('loginModal');
         if (modalContainer) {
@@ -1485,34 +1485,6 @@ export function initializeUserInterface(is_logged, is_admin, is_moderator) {
     console.log('%c[LOGIN STATUS] Інтерфейс оновлено.', 'color: #ffc183');
 }
 
-// export function ensureAdminAccess() {
-//     const authToken = localStorage.getItem('authToken');
-
-//     if (!authToken) {
-//         window.location.href = '/home/index.html';
-//         return;
-//     }
-
-//     fetch('https://x8ki-letl-twmt.n7.xano.io/api:ZOHOxVVb/auth/me', {
-//         method: 'GET',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Authorization': `Bearer ${authToken}`
-//         }
-//     })
-//     .then(response => response.json())
-//     .then(userData => {
-//         if (!userData.is_administrator) {
-//             window.location.href = '/home/index.html';
-//         }
-//     })
-//     .catch(() => {
-//         window.location.href = '/home/index.html';
-//     });
-// }
-
-// Додаємо HTML модалки до сторінки, якщо вона відсутня
-
 function ensureFailModalExists() {
     if (!document.getElementById('failModal')) {
         const modalHTML = `
@@ -1553,41 +1525,7 @@ export function showFailModal(title, message) {
     failModal.show();
 }
 
-// function updateUserDetails(userId, updatedData) {
-//     const url = `https://x8ki-letl-twmt.n7.xano.io/api:ZOHOxVVb/user/${userId}`;
-//     const authToken = localStorage.getItem('authToken'); // Отримуємо токен із localStorage
-
-//     if (!authToken) {
-//         console.error('%c[API] Токен авторизації не знайдено.');
-//         return Promise.reject('Токен авторизації не знайдено.');
-//     }
-
-//     return fetch(url, {
-//         method: 'PATCH', // Використовуємо PATCH для часткового оновлення
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Authorization': `Bearer ${authToken}` // Додаємо токен авторизації
-//         },
-//         body: JSON.stringify(updatedData)
-//     })
-//         .then(response => {
-//             if (!response.ok) {
-//                 throw new Error('[API] UPD: Помилка у відповіді сервера');
-//             }
-//             return response.json();
-//         })
-//         .then(data => {
-//             console.log('%c[API] UPD: Успішно оновлено дані користувача:', data);
-//             return data; // Повертаємо дані для подальшого використання
-//         })
-//         .catch(error => {
-//             console.error('[API] UPD: Помилка оновлення даних користувача:', error);
-//             throw error; // Кидаємо помилку для обробки
-//         });
-// }
-
 // Поведінка при виході користувача з облікового запису
-
 export function logoutUser() {
     const userId = localStorage.getItem('user_id');
     const localCart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -1697,145 +1635,144 @@ function createSettingsModal() {
       </div>
     </div>`;
     document.body.insertAdjacentHTML('beforeend', modalHTML);
-  }
-  
-  // 2. Наповнення полів поточними даними (обидві версії)
-  function populateSettingsView() {
+}
+
+// 2. Наповнення полів поточними даними (обидві версії)
+function populateSettingsView() {
     document.getElementById('settingsUsername').value = localStorage.getItem('username') || '';
     document.getElementById('settingsEmail').value    = localStorage.getItem('user_email') || '';
-  }
-  function populateSettingsForm() {
+}
+function populateSettingsForm() {
     document.getElementById('settingsUsernameEditable').value = localStorage.getItem('username') || '';
     document.getElementById('settingsEmailEditable').value    = localStorage.getItem('user_email') || '';
-  }
-  
-  // 3. Відкриття модалки
-  waitForElement('#settingsItem').then(settingsItem => {
+}
+
+// 3. Відкриття модалки
+waitForElement('#settingsItem').then(settingsItem => {
     settingsItem.addEventListener('click', e => {
-      e.preventDefault();
-      createSettingsModal();
-      populateSettingsView();
-      document.getElementById('viewSettings').classList.remove('d-none');
-      document.getElementById('settingsForm').classList.add('d-none');
-      new bootstrap.Modal('#settingsModal').show();
+    e.preventDefault();
+    createSettingsModal();
+    populateSettingsView();
+    document.getElementById('viewSettings').classList.remove('d-none');
+    document.getElementById('settingsForm').classList.add('d-none');
+    new bootstrap.Modal('#settingsModal').show();
     });
-  });
-  
-  // 4. Кнопка «Редагувати»
-  document.body.addEventListener('click', e => {
+});
+
+// 4. Кнопка «Редагувати»
+document.body.addEventListener('click', e => {
     if (e.target.closest('#editSettingsBtn')) {
-      populateSettingsForm();
-      document.getElementById('viewSettings').classList.add('d-none');
-      document.getElementById('settingsForm').classList.remove('d-none');
+    populateSettingsForm();
+    document.getElementById('viewSettings').classList.add('d-none');
+    document.getElementById('settingsForm').classList.remove('d-none');
     }
-  });
-  
-  // 5. Скасування редагування
-  document.body.addEventListener('click', e => {
+});
+
+// 5. Скасування редагування
+document.body.addEventListener('click', e => {
     if (e.target.id === 'cancelEditSettings') {
-      e.preventDefault();
-      populateSettingsView();
-      document.getElementById('settingsForm').classList.add('d-none');
-      document.getElementById('viewSettings').classList.remove('d-none');
+    e.preventDefault();
+    populateSettingsView();
+    document.getElementById('settingsForm').classList.add('d-none');
+    document.getElementById('viewSettings').classList.remove('d-none');
     }
-  });
-  
-  // 6. Збереження змін
-  document.body.addEventListener('submit', async e => {
+});
+
+// 6. Збереження змін
+document.body.addEventListener('submit', async e => {
     if (e.target.id !== 'settingsForm') return;
     e.preventDefault();
-  
+
     const newName  = document.getElementById('settingsUsernameEditable').value.trim();
     const newEmail = document.getElementById('settingsEmailEditable').value.trim();
     const pwd      = document.getElementById('settingsNewPassword').value;
     const confirm  = document.getElementById('settingsConfirmPassword').value;
     if (pwd && pwd !== confirm) {
-      return alert('Паролі не збігаються.');
+    return alert('Паролі не збігаються.');
     }
-  
+
     const user_id      = localStorage.getItem('user_id');
     const token        = localStorage.getItem('authToken');
     const currentName  = localStorage.getItem('username');
     const currentEmail = localStorage.getItem('user_email');
-  
+
     // Формуємо payload так, щоб завжди були обидва поля:
     const payload = {
-      username: newName  || currentName,
-      email:    newEmail || currentEmail,
+    username: newName  || currentName,
+    email:    newEmail || currentEmail,
     };
     if (pwd) {
-      payload.password = pwd;
+    payload.password = pwd;
     }
-  
+
     try {
-      const res = await fetch(
+    const res = await fetch(
         `https://x8ki-letl-twmt.n7.xano.io/api:ZOHOxVVb/user_pass/${user_id}`,
         {
-          method: 'PATCH',
-          headers: {
+        method: 'PATCH',
+        headers: {
             'Content-Type':  'application/json',
             'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify(payload)
+        },
+        body: JSON.stringify(payload)
         }
-      );
-      const data = await res.json();
-      if (!res.ok) {
+    );
+    const data = await res.json();
+    if (!res.ok) {
         throw new Error(data.message || 'Не вдалося зберегти зміни.');
-      }
-  
-      // Оновлюємо localStorage тільки якщо прийшли нові значення
-      localStorage.setItem('username', data.username);
-      localStorage.setItem('user_email', data.email);
-  
-      alert('Дані оновлено.');
-      // повертаємо у режим перегляду
-      populateSettingsView();
-      document.getElementById('settingsForm').classList.add('d-none');
-      document.getElementById('viewSettings').classList.remove('d-none');
-  
-    } catch (err) {
-      console.error(err);
-      alert('Помилка при збереженні.');
     }
-  });
+
+    // Оновлюємо localStorage тільки якщо прийшли нові значення
+    localStorage.setItem('username', data.username);
+    localStorage.setItem('user_email', data.email);
+
+    alert('Дані оновлено.');
+    // повертаємо у режим перегляду
+    populateSettingsView();
+    document.getElementById('settingsForm').classList.add('d-none');
+    document.getElementById('viewSettings').classList.remove('d-none');
+
+    } catch (err) {
+    console.error(err);
+    alert('Помилка при збереженні.');
+    }
+});
   
-  
-  // 7. Видалення акаунту
+// 7. Видалення акаунту
 document.body.addEventListener('click', async e => {
     if (e.target.id !== 'deleteAccountBtn') return;
     if (!confirm('Ви впевнені, що хочете видалити акаунт?')) return;
-  
+
     const userId = localStorage.getItem('user_id');
     const token  = localStorage.getItem('authToken');
     const payload = {
-      reason: 'Видалення акаунту за власним рішенням користувача'
+    reason: 'Видалення акаунту за власним рішенням користувача'
     };
-  
+
     try {
-      const res = await fetch(
+    const res = await fetch(
         `https://x8ki-letl-twmt.n7.xano.io/api:ZOHOxVVb/user/${userId}`,
         {
-          method: 'DELETE',
-          headers: {
+        method: 'DELETE',
+        headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify(payload)
+        },
+        body: JSON.stringify(payload)
         }
-      );
-      if (!res.ok) throw new Error('Не вдалося видалити акаунт.');
-  
-      // Після успіху чистимо локальне сховище та переадресовуємо на головну
-      localStorage.clear();
-      window.location.href = '/home/';
+    );
+    if (!res.ok) throw new Error('Не вдалося видалити акаунт.');
+
+    // Після успіху чистимо локальне сховище та переадресовуємо на головну
+    localStorage.clear();
+    window.location.href = '/home/';
     } catch (err) {
-      console.error(err);
-      alert('Помилка при видаленні акаунту.');
+    console.error(err);
+    alert('Помилка при видаленні акаунту.');
     }
-  });
-  
-  
+});
+
+
 
 window.getBookDetailsById = getBookDetailsById;
 window.updateFinalTotal = updateFinalTotal;
