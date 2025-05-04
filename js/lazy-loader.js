@@ -14,19 +14,19 @@ const normalizedPath = currentPath
   .replace(/\/$/, '');            // /home/          → /home
 
 const globalCSSFiles = [
-    '../css/base.css',
-    '../css/colors.css',
-    '../css/fonts.css',
-    '../css/header-footer.css',
-    '../css/login.css',
-    '../home/cart/cart.css'
+    '/cozy_corner_demo/css/base.css',
+    '/cozy_corner_demo/css/colors.css',
+    '/cozy_corner_demo/css/fonts.css',
+    '/cozy_corner_demo/css/header-footer.css',
+    '/cozy_corner_demo/css/login.css',
+    '/cozy_corner_demo/home/cart/cart.css'
 ];
 
 const pageSpecificCSS = {
-    '/home/': ['../home/home.css', '../css/books.css'],
-    '/library/': ['../home/library/library.css', '../css/books.css'],
-    '/cart.html': ['../home/cart/cart.css'],
-    '/test-all.html': ['../css/books.css']
+    '/home/': ['/cozy_corner_demo/home/home.css', '/cozy_corner_demo/css/books.css'],
+    '/library/': ['/cozy_corner_demo/home/library/library.css', '/cozy_corner_demo/css/books.css'],
+    '/cart.html': ['/cozy_corner_demo/home/cart/cart.css'],
+    '/test-all.html': ['/cozy_corner_demo/css/books.css']
 };
 
 globalCSSFiles.forEach(file => loadCSS(file));
@@ -46,7 +46,7 @@ function loadCSS(file) {
     }
 }
 
-import('../js/common.js')
+import('/cozy_corner_demo/js/common.js')
     .then(async (module) => {
         await module.loadHeader();
         module.updateCartHeader(); // update the cart header immediately
@@ -58,7 +58,7 @@ import('../js/common.js')
 
         module.checkLoginStatus();
 
-        import('../js/cart.js')
+        import('/cozy_corner_demo/js/cart.js')
             .then(cartModule => {
                 if (cartModule.updateCartUI) {
                     cartModule.updateCartUI();
@@ -108,14 +108,14 @@ import('../js/common.js')
 
         if (normalizedPath === '/home') {
             // Динамічно імпортуємо модулі тільки на головній
-            import('../js/book.js')
+            import('/cozy_corner_demo/js/book.js')
               .then(bookModule => {
                 window.updateOffcanvas = bookModule.updateOffcanvas;
                 console.log('%c[JS] book.js for home loaded', 'color: lightgreen;');
               })
               .catch(err => console.error('Error loading book.js for home:', err));
           
-            import('../js/home.js')
+            import('/cozy_corner_demo/js/home.js')
               .then(async homeModule => {
                 await homeModule.setupHomePage();
                 console.log('%c[JS] home.js loaded', 'color: lightgreen;');
@@ -124,7 +124,7 @@ import('../js/common.js')
           }
 
         if (currentPath.includes('/library/')) {
-            import('../js/book.js')
+            import('/cozy_corner_demo/js/book.js')
                 .then(async (bookModule) => {
                     console.log('%c[LIBRARY] Starting to load book.js', 'color: orange; font-weight: bold;');
                     await bookModule.initializeLibraryPage();
