@@ -46,7 +46,7 @@ function loadCSS(file) {
     }
 }
 
-import('/js/common.js')
+import('../js/common.js')
     .then(async (module) => {
         await module.loadHeader();
         module.updateCartHeader(); // update the cart header immediately
