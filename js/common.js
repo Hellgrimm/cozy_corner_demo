@@ -71,12 +71,12 @@ function loadReusableComponent(containerId, filePath) {
 
 // Завантаження хедера
 export function loadHeader() {
-    return loadReusableComponent('headerDiv', './reusable/header.html');
+    return loadReusableComponent('headerDiv', '../reusable/header.html');
 }
 
 // Завантаження футера
 export function loadFooter() {
-    return loadReusableComponent('footerDiv', './reusable/footer.html');
+    return loadReusableComponent('footerDiv', '../reusable/footer.html');
 }
 
 
