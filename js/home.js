@@ -1,6 +1,6 @@
-import { getBooks } from './common.js';
-import { updateRecentlyViewedSection, getRecentlyViewedBooks } from './common.js';
-import { fetchBooksByIds } from './book.js';
+import { getBooks } from '../js/common.js';
+import { updateRecentlyViewedSection, getRecentlyViewedBooks } from '../js/common.js';
+import { fetchBooksByIds } from '../js/book.js';
 
 
 const books = await getBooks();
@@ -58,7 +58,7 @@ function publicHomeMarkup() {
               alt="Cozy Corner Logo" 
               class="img-fluid mw-100" 
               style="max-height: 500px;"
-              onerror="this.onerror=null; this.src='/img/book-things/no-image.png';"
+              onerror="this.onerror=null; this.src='../img/book-things/no-image.png';"
             >
           </div>
         </div>
@@ -195,9 +195,9 @@ function renderPlansSection() {
 
 function renderPartnersSection() {
     const partners = [
-        '/img/partners/pub1.png',
-        '/img/partners/pub2.png',
-        '/img/partners/pub3.jpg',
+        '../img/partners/pub1.png',
+        '../img/partners/pub2.png',
+        '../img/partners/pub3.jpg',
     ];
     const wr = document.getElementById('partnersSection');
     partners.forEach(src => {
@@ -222,21 +222,3 @@ function renderUserStats() {
         </div>`;
     });
 }
-
-// async function renderRecommendations() {
-//     // У вас може бути запит до API або локальна функція
-//     const recs = await fetch('/api/recommendations').then(r => r.json());
-//     const row = document.getElementById('recommendationsSection');
-//     recs.forEach(book => {
-//         row.innerHTML += `
-//         <div class="col-md-4 mb-4">
-//           <div class="card h-100">
-//             <img src="${book.image_link}" class="card-img-top" alt="${book.book_name}">
-//             <div class="card-body">
-//               <h5 class="card-title">${book.book_name}</h5>
-//               <p class="card-text">${book.writer_name}</p>
-//             </div>
-//           </div>
-//         </div>`;
-//     });
-// }

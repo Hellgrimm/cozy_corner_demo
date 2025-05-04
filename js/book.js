@@ -1,5 +1,5 @@
 // 1. Глобальні змінні
-import { getBooks } from './common.js';
+import { getBooks } from '../js/common.js';
 const books = await getBooks(); // тут завжди отримаєш одну і ту саму "копію"
 console.log('Книги для books.js:', books);
 
@@ -436,13 +436,13 @@ export function renderBookCard(book) {
              data-bs-target="#offcanvasBottom"
              onclick="updateOffcanvas(${book.id})">
           <img src="${book.image_link}" alt="${book.book_name}"
-               onerror="this.onerror=null;this.src='/img/book-things/no-image.png'">
+               onerror="this.onerror=null;this.src='../img/book-things/no-image.png'">
           <h3>${book.book_name}</h3>
           <p>${book.writer_name}</p>
         </div>
         <div class="book-card-bottom">
           <div class="book-card-rating">
-            <img src="/img/book-things/star.png" alt="star">
+            <img src="../img/book-things/star.png" alt="star">
             <p>${book.book_rating}</p>
           </div>
           <div class="book-card-price-button">
@@ -519,13 +519,13 @@ export function displayCategories(books) {
         categoryContainer.innerHTML = books.map(book => `
             <div class="book-card">
                 <div class="book-card-separator" data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom" onclick="updateOffcanvas(${book.id})">
-                    <img src="${book.image_link}" alt="${book.book_name}" onerror="this.onerror=null;this.src='/img/book-things/no-image.png';">
+                    <img src="${book.image_link}" alt="${book.book_name}" onerror="this.onerror=null;this.src='../img/book-things/no-image.png';">
                     <h3>${book.book_name}</h3>
                     <p>${book.writer_name}</p>
                 </div>
                 <div class="book-card-bottom">
                     <div class="book-card-rating">
-                        <img src="/img/book-things/star.png" alt="star">
+                        <img src="../img/book-things/star.png" alt="star">
                         <p>${book.book_rating}</p>
                     </div>
                     <div class="book-card-price-button">
