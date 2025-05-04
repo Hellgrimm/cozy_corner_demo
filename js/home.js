@@ -1,6 +1,6 @@
-import { getBooks } from '../js/common.js';
-import { updateRecentlyViewedSection, getRecentlyViewedBooks } from '../js/common.js';
-import { fetchBooksByIds } from '../js/book.js';
+import { getBooks } from '/cozy_corner_demo/js/common.js';
+import { updateRecentlyViewedSection, getRecentlyViewedBooks } from '/cozy_corner_demo/js/common.js';
+import { fetchBooksByIds } from '/cozy_corner_demo/js/book.js';
 
 
 const books = await getBooks();
@@ -58,7 +58,7 @@ function publicHomeMarkup() {
               alt="Cozy Corner Logo" 
               class="img-fluid mw-100" 
               style="max-height: 500px;"
-              onerror="this.onerror=null; this.src='../img/book-things/no-image.png';"
+              onerror="this.onerror=null; this.src='/cozy_corner_demo/img/book-things/no-image.png';"
             >
           </div>
         </div>
@@ -195,9 +195,9 @@ function renderPlansSection() {
 
 function renderPartnersSection() {
     const partners = [
-        '../img/partners/pub1.png',
-        '../img/partners/pub2.png',
-        '../img/partners/pub3.jpg',
+        '/cozy_corner_demo/img/partners/pub1.png',
+        '/cozy_corner_demo/img/partners/pub2.png',
+        '/cozy_corner_demo/img/partners/pub3.jpg',
     ];
     const wr = document.getElementById('partnersSection');
     partners.forEach(src => {
