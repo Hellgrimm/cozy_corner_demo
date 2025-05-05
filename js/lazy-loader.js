@@ -106,7 +106,7 @@ import('/cozy_corner_demo/js/common.js')
             }
         }, 500);
 
-        if (normalizedPath === '/home') {
+        if (normalizedPath === '/cozy_corner_demo/home') {
             // Динамічно імпортуємо модулі тільки на головній
             import('/cozy_corner_demo/js/book.js')
               .then(bookModule => {
