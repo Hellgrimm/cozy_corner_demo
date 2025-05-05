@@ -641,7 +641,7 @@ const OrdersModule = (() => {
                                         const book = getBookDetailsById(item.book_id) || {};
                                         return `
                                         <div class="d-flex align-items-center mb-2">
-                                            <img src="${book.image_link || '/img/book-things/no-image.png'}"
+                                            <img src="${book.image_link || '/cozy_corner_demo/img/book-things/no-image.png'}"
                                                 width="40" class="me-2">
                                             <div>
                                             <strong>${book.book_name || 'Н/Д'}</strong>

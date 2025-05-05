@@ -54,7 +54,7 @@ function publicHomeMarkup() {
           <!-- Права колонка: логотип -->
           <div class="col-md-6 text-center">
             <img 
-              src="/img/cozy_corner_logo_circl.png" 
+              src="/cozy_corner_demo/img/cozy_corner_logo_circl.png" 
               alt="Cozy Corner Logo" 
               class="img-fluid mw-100" 
               style="max-height: 500px;"

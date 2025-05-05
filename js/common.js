@@ -205,7 +205,7 @@ export function setupHeaderSearch(books) {
     function createBookItem(book) {
         return `
             <div class="book-item">
-                <img src="${book.image_link || '/img/book-placeholder.png'}" alt="${book.book_name}" class="book-item-image">
+                <img src="${book.image_link || '/cozy_corner_demo/img/book-placeholder.png'}" alt="${book.book_name}" class="book-item-image">
                 <div class="book-item-info">
                     <h5 class="book-item-title">${book.book_name}</h5>
                     <p class="book-item-author">${book.writer_name}</p>
@@ -760,7 +760,7 @@ export function renderOrderHistory(orders) {
         // Create miniatures for each order item.
         const miniatures = orderItems.map(item => {
             const book = window.getBookDetailsById(item.book_id);
-            return book ? `<img src="${book.image_link}" alt="${book.book_name}" style="width:30px; height:auto; margin-left:5px;" onerror="this.onerror=null; this.src='/img/book-things/no-image.png';">` : '';
+            return book ? `<img src="${book.image_link}" alt="${book.book_name}" style="width:30px; height:auto; margin-left:5px;" onerror="this.onerror=null; this.src='/cozy_corner_demo/img/book-things/no-image.png';">` : '';
         }).join('');
 
         // Build header HTML with two rows:
@@ -794,10 +794,10 @@ export function renderOrderHistory(orders) {
           <div class="order-item" style="display: flex; align-items: center; gap: 10px; margin-bottom: 10px;">
             <div class="order-item-image" style="flex-shrink:0;">
                 <img
-                    src="${book && book.image_link ? book.image_link : '/img/book-things/no-image.png'}"
+                    src="${book && book.image_link ? book.image_link : '/cozy_corner_demo/img/book-things/no-image.png'}"
                     alt="${book ? book.book_name : 'Невідома книга'}"
                     style="width:50px; height:auto;"
-                    onerror="this.onerror=null; this.src='/img/book-things/no-image.png';"
+                    onerror="this.onerror=null; this.src='/cozy_corner_demo/img/book-things/no-image.png';"
                 >
                 </div>
             <div class="order-item-details">
@@ -1589,7 +1589,7 @@ function createSettingsModal() {
           <div class="modal-header align-items-center">
             <h5 class="modal-title" id="settingsModalLabel">Налаштування користувача</h5>
             <button type="button" class="btn btn-secondary btn-sm rounded-circle ms-2" id="editSettingsBtn" title="Редагувати">
-              <img src="/img/user/edit.png" alt="✎" style="width:16px;height:20px;">
+              <img src="/cozy_corner_demo/img/user/edit.png" alt="✎" style="width:16px;height:20px;">
             </button>
             <button type="button" class="btn-close ms-auto" data-bs-dismiss="modal" aria-label="Закрити"></button>
           </div>
